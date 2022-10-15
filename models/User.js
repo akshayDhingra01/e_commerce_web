@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    type : {enum : ["BUYER", "SELLER"] , required : true , default : "BUYER"} 
   },
   { timestamps: true }
 );
