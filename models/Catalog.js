@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const CatalogSchema = new mongoose.Schema(
   {
-    userId: { type: String, required: true },
+    sellerId : { type: String, required: true , unique : true},
     products: [
       {
         productId: {
@@ -14,7 +14,6 @@ const CatalogSchema = new mongoose.Schema(
         },
       },
     ],
-    sellerId : { type: String, required: true },
   },
   { timestamps: true }
 );
