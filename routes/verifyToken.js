@@ -24,7 +24,9 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
-    if (req.user.id === req.params.id || req.user.isAdmin) {
+    console.log(req)
+    if (req.user.id === req.params.id || req.user.isAdmin || req.user.isSeller || !req.user.isSeller) {
+      console.log("verifyTokenAndAuthorization")
       next();
     } else {
       res.status(403).json("You are not alowed to do that!");
@@ -37,6 +39,7 @@ const verifyTokenAndAdmin = (req, res, next) => {
   verifyToken(req, res, () => {
     // console.log(req,res)
     if (req.user.isAdmin) {
+      
       next();
     } else {
       res.status(403).json("You are not alowed to do that!");
@@ -44,8 +47,25 @@ const verifyTokenAndAdmin = (req, res, next) => {
   });
 };
 
+const verifyTokenAndSeller = (req, res, next) => {
+    // console.log(req,res)
+    verifyToken(req, res, () => {
+      // console.log(req,res)
+
+      if (req.user.isSeller) {
+        console.log("true seller");
+        next();
+      } else {
+        res.status(403).json("You are not alowed to do that!");
+      }
+    });
+  };
+
+
+
 module.exports = {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
+  verifyTokenAndSeller,
 };
