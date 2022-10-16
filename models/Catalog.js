@@ -5,13 +5,22 @@ const CatalogSchema = new mongoose.Schema(
     sellerId : { type: String, required: true , unique : true},
     products: [
       {
+        name : {
+          type: String,
+          required:true
+        },
         productId: {
           type: String,
+          required:true
         },
         quantity: {
           type: Number,
-          // default: 1,  (check how to make it default)
+          required:true
         },
+        price:{
+          type: Number,
+          required:true
+        }
       },
     ],
   },

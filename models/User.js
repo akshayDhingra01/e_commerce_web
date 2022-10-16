@@ -14,8 +14,7 @@ const UserSchema = new mongoose.Schema(
         default: false,
         // required: true
       },
-    // type : {type : String , enum: ["BUYER", "SELLER"] , required : true , default : "BUYER"} 
-  },
+    },
   { timestamps: true }
 );
 

@@ -20,6 +20,8 @@ router.post("/", verifyToken, async (req, res) => {
   }
 });
 
+
+
 //UPDATE
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {

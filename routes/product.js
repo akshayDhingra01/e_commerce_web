@@ -3,13 +3,14 @@ const {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
+  verifyTokenAndSeller
 } = require("./verifyToken");
 
 const router = require("express").Router();
 
-//CREATE
+//CREATE PRODUCTS
 
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/", verifyTokenAndSeller, async (req, res) => {
   const newProduct = new Product(req.body);
 
   try {

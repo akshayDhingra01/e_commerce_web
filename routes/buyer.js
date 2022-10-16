@@ -1,9 +1,3 @@
-// POST /api/seller/create-catalog
-// Send a list of items to create a catalog for a seller
-// GET /api/seller/orders
-// Retrieve the list of orders received by a seller
-
-
 const Catalog = require("../models/Catalog");
 const Order = require("../models/Order");
 const User = require("../models/User");
@@ -40,7 +34,7 @@ router.get("/seller-catalog/:seller_id", verifyTokenAndAuthorization, async (req
   console.log("seller_idOfSeller" , seller_idOfSeller);
   try {
       if (seller_idOfSeller) {
-        catalogOfSeller = await Catalog.find({"sellerId" : seller_idOfSeller});   // Why insertOne is not wroking here
+        catalogOfSeller = await Catalog.find({"sellerId" : seller_idOfSeller});   
         console.log(("catalogOfSeller" , catalogOfSeller));
       } else {
         res.status(500).json("no catalog of seller found")
@@ -119,7 +113,7 @@ router.post("/create-order/:seller_id", verifyTokenAndAuthorization, async (req,
                 }
             }
 
-            orderr = await Cart.insertMany(orderToBuy);   // Why insertOne is not wroking here
+            orderr = await Cart.insertMany(orderToBuy);   
             console.log(("orderToBuy" , orderToBuy));
           } else {
             res.status(500).json("no catalog of seller found")
