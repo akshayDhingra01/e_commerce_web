@@ -17,10 +17,7 @@ Let a previously registered user log in (e.g. retrieve authentication token)
 ```
 GET /api/buyer/list-of-sellers
 ```
-
-```
 Get a list of all sellers
-```
 ```
 GET /api/buyer/seller-catalog/:seller_id
 ```
