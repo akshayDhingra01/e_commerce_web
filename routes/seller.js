@@ -46,28 +46,21 @@ router.get("/orders", verifyTokenAndSeller, async (req, res) => {
   
 
 
-//GET ALL orders for a seller
+//CREATE CATALOG
 router.post("/create-catalog", verifyTokenAndSeller, async (req, res) => {
-  const query = req.query.new;
-  const qOrder = req.query.order;
-  // console.log("query" , query);
-  // console.log(req)
-  console.log(req.query)
-  console.log("qorder" , req.query.order)
-  console.log("cant find")
+  
+  const catalogToAdd = req.body
+  // console.log("catalogToAdd" , catalogToAdd);
 
   try {
-    let orders;
-
-      if (qOrder) {
-        orders = await Order.find({ 'sellerId': qOrder });
-        console.log(("orders" , orders));
+      if (catalogToAdd) {
+        catalog = await Catalog.insertMany(catalogToAdd);   // Why insertOne is not wroking here
+        console.log(("catalogToAdd" , catalogToAdd));
       } else {
-        console.log("else");
-        res.status(500).json("seller id not mentioned")
+        res.status(500).json("no catalog to add")
       }
   // 
-      res.status(200).json(orders);
+      res.status(200).json(catalogToAdd);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -95,38 +88,22 @@ router.post("/create-catalog", verifyTokenAndSeller, async (req, res) => {
 
 
 
+// //CREATE CATALOG
+// router.post("create-catalog", verifyTokenAndSeller,  async (req, res) => {
+//     console.log("create-catalog")
+//     const newCatalog = new Catalog(req.body);
 
-
-
-
-// {    "sellerId" : "abg",
-//     "products": [
-//       {
-//         "productId": "123",
-//         "quantity": 1 
-//         }
-//     ]
-// }
-
-
-
-
-//CREATE CATALOG
-router.post("create-catalog", verifyTokenAndSeller,  async (req, res) => {
-    console.log("create-catalog")
-    const newCatalog = new Catalog(req.body);
-
-    console.log(newCatalog)
-    console.log("newCatalog")
+//     console.log(newCatalog)
+//     console.log("newCatalog")
 
   
-    try {
-      const savedCatalog = await newCatalog.save();
-      res.status(200).json(savedCatalog);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+//     try {
+//       const savedCatalog = await newCatalog.save();
+//       res.status(200).json(savedCatalog);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 
 
