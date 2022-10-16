@@ -9,7 +9,12 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    type : {enum : ["BUYER", "SELLER"] , required : true , default : "BUYER"} 
+    isSeller : {
+        type: Boolean,
+        default: false,
+        // required: true
+      },
+    // type : {type : String , enum: ["BUYER", "SELLER"] , required : true , default : "BUYER"} 
   },
   { timestamps: true }
 );
