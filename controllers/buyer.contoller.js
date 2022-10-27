@@ -28,7 +28,6 @@ const catalogOfParticularSeller =  (verifyTokenAndAuthorization, async (req, res
     try {
         if (seller_idOfSeller) {
           catalogOfSeller = await Catalog.find({"sellerId" : seller_idOfSeller});   
-          console.log(("catalogOfSeller" , catalogOfSeller));
         } else {
           res.status(500).json("no catalog of seller found")
         }
@@ -44,10 +43,8 @@ const orderForParticularSeller = (verifyTokenAndAuthorization, async (req, res) 
 
   const seller_idOfSeller = req.params.seller_id
   console.log("seller_idOfSeller" , seller_idOfSeller);
-  console.log(req.body); 
   const orderToBuy = req.body
   const products = orderToBuy["products"]
-  console.log("products" , orderToBuy["products"]);
 
   try {
       if (seller_idOfSeller) {
@@ -64,7 +61,6 @@ const orderForParticularSeller = (verifyTokenAndAuthorization, async (req, res) 
         console.log(products.length);
 
         for (let iterable = 0; iterable < products.length; iterable++) {
-            console.log("productsssss" , products[iterable]);
             const prodId = products[iterable]["productId"];
             const prodQty = products[iterable]["quantity"];
             var productFoundInCatalog = 0;

@@ -15,7 +15,6 @@ router.get("/list-of-sellers", verifyTokenAndAuthorization,async (req, res) => {
 
 //GET CATALOG OF PARTICULAR SELLER
 router.get("/seller-catalog/:seller_id", verifyTokenAndAuthorization, async (req, res) => {
-//   console.log("req.params.seller_id" , req.params.seller_id);
   return buyerService.catalogOfParticularSeller(verifyTokenAndAuthorization, (req, res))
   });
 

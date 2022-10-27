@@ -17,7 +17,6 @@ const findAllOrdersForSeller = (verifyTokenAndSeller, async (req, res) => {
             orders = await Order.find({ 'sellerId': qOrder });
             console.log(("orders" , orders));
         } else {
-            console.log("else");
             res.status(500).json("seller id not mentioned")
         }
     // 

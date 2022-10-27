@@ -54,7 +54,6 @@ const findUserById = (verifyTokenAndAdmin, async (req, res) => {
 const findAllUsers = (verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new;
   console.log(req.query)
-  console.log("cant find")
 
   try {
     console.log("cant find")
