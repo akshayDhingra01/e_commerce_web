@@ -21,9 +21,7 @@ Get a list of all sellers
 ```
 GET /api/buyer/seller-catalog/:seller_id
 ```
-```
 Get the catalog of a seller by seller_id
-```
 ```
 POST /api/buyer/create-order/:seller_id
 ```
