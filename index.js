@@ -6,10 +6,10 @@ const dotenv = require("dotenv");
 const buyerRoute = require("./routes/buyer")
 const userRoute = require("./routes/user");
 const authRoute = require("./src/auth/auth.contoller");
-const productRoute = require("./routes/product.contoller");
-const cartRoute = require("./routes/cart.contoller");
-const orderRoute = require("./routes/order.contoller");
-const sellerRoute = require("./routes/seller.contoller")
+const productRoute = require("./routes/product");
+const cartRoute = require("./routes/cart");
+const orderRoute = require("./routes/order");
+const sellerRoute = require("./routes/seller")
 
 const cors = require("cors");
 

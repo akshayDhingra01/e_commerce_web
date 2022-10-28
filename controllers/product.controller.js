@@ -4,7 +4,7 @@ const {
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
   verifyTokenAndSeller
-} = require("./verifyToken");
+} = require("../src/verifyToken");
 
 
 //function to create PRODUCT in the database

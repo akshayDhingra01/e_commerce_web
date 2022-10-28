@@ -3,7 +3,7 @@ const {
 } = require("../src/verifyToken");
 
 const router = require("express").Router();
-const buyerService = require("../controllers/buyer.service")
+const buyerService = require("../controllers/buyer.controller")
 
 
 

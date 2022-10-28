@@ -2,7 +2,7 @@ const Catalog = require("../models/Catalog");
 const Order = require("../models/Order");
 const {
   verifyTokenAndSeller
-} = require("./verifyToken");
+} = require("../src/verifyToken");
 
 
 //GET ALL orders for a seller

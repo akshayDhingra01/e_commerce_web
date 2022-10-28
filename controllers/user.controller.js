@@ -2,7 +2,7 @@ const User = require("../models/User");
 const {
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
-} = require("./verifyToken");
+} = require("../src/verifyToken");
 
 
 //function to UPDATE the information of user in the database

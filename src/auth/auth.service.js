@@ -3,30 +3,23 @@ const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
 
-//function to register details of a user
-const userRegisteration = (async (req, res) => {
-  console.log(req)
+//function to create user by getting details from the client
+const userRegisteration = (body => {
   const newUser = new User({
-    username: req.body.username,
-    email: req.body.email,
-    isSeller: req.body.isSeller,
+    username: body.username,
+    email: body.email,
+    isSeller: body.isSeller,
     password: CryptoJS.AES.encrypt(
-      req.body.password,
+      body.password,
       process.env.PASS_SEC
     ).toString(),
   });
-
-  try {
-    const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  return newUser
 });
 
 
 // function for login detials of a user 
-const userLogin = (async (req, res) => {
+const userLogin = (async (req,res) => {
     try{
         const user = await User.findOne(
             {
